@@ -12,6 +12,7 @@ The goal of this project is to have a clean Travis CI build, with specs:
  * C++ version: `C++14`
  * Libraries: `STL` only
  * Code coverage: none
+ * Profiling: `gprof`
  * Source: one single file, `main.cpp`
 
 More complex builds:
