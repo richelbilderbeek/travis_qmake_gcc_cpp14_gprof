@@ -16,6 +16,6 @@ CONFIG(release, debug|release) {
 }
 
 # gprof
-QMAKE_CXXFLAGS_DEBUG += -pg
-QMAKE_LFLAGS_DEBUG += -pg
+QMAKE_CXXFLAGS += -pg
+QMAKE_LFLAGS += -pg
 
