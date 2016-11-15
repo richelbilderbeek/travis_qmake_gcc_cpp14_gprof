@@ -12,6 +12,7 @@ install:
   - sudo apt-get install -qq g++-5
 
 script: 
-  - qmake
+  - qmake -config debug
   - make
   - ./travis_qmake_gcc_cpp14_gprof
+  - gprof travis_qmake_gcc_cpp14_gprof
