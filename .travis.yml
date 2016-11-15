@@ -13,8 +13,8 @@ install:
 
 script: 
   # Build
-  - qmake -config debug
-  - make
+  - qmake
+  - make release
   # Run
   - ./travis_qmake_gcc_cpp14_gprof
   # produce the gprof log

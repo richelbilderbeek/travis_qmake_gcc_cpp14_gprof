@@ -28,11 +28,11 @@ void g()
   std::cout << sum << '\n';
 }
 
-#include <cassert>
-
 int main()
 {
-  assert(!"Do not profile in debug mode");
+  #ifndef NDEBUG
+  #error Do not profile in debug mode
+  #endif
 
   f();
   g();
