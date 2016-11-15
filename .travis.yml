@@ -12,7 +12,12 @@ install:
   - sudo apt-get install -qq g++-5
 
 script: 
+  # Build
   - qmake -config debug
   - make
+  # Run
   - ./travis_qmake_gcc_cpp14_gprof
-  - gprof travis_qmake_gcc_cpp14_gprof
+  # produce the gprof log
+  - gprof travis_qmake_gcc_cpp14_gprof > gprof.log
+  # Read the 100 top lines
+  - head gprof.log -n 1000

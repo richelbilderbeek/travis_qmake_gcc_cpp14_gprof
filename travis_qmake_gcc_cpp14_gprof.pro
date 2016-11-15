@@ -9,6 +9,13 @@ QMAKE_LINK = g++-5
 QMAKE_CC = gcc-5
 QMAKE_CXXFLAGS += -std=c++14
 
+# Debug and release mode
+CONFIG += console debug_and_release
+CONFIG(release, debug|release) {
+  DEFINES += NDEBUG
+}
+
 # gprof
 QMAKE_CXXFLAGS_DEBUG += -pg
 QMAKE_LFLAGS_DEBUG += -pg
+
