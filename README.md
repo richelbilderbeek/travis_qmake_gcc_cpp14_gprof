@@ -21,5 +21,5 @@ More complex builds:
 Less complex builds:
  * No `gprof`: [travis_qmake_gcc_cpp14](https://www.github.com/richelbilderbeek/travis_qmake_gcc_cpp14)
  * Use C++11: [travis_qmake_gcc_cpp11_gprof](https://www.github.com/richelbilderbeek/travis_qmake_gcc_cpp11_gprof)
- * Use C++98: [travis_qmake_gcc_cpp11_gprof](https://www.github.com/richelbilderbeek/travis_qmake_gcc_cpp98_gprof)
+ * Use C++98: [travis_qmake_gcc_cpp98_gprof](https://www.github.com/richelbilderbeek/travis_qmake_gcc_cpp98_gprof)
  
