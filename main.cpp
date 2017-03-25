@@ -29,7 +29,6 @@ int sum_b(const std::vector<int>& v)
   );
 }
 
-#include <cassert>
 int main()
 {
   #ifndef NDEBUG
