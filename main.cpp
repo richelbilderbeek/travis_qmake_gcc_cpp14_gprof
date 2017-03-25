@@ -6,26 +6,27 @@ auto cpp_14() noexcept {
 }
 
 #include <iostream>
+#include <numeric>
+#include <vector>
 
-
-void f()
+int sum_a(const std::vector<int>& v)
 {
   int sum = 0;
-  for (int i=0; i!=10000000; ++i)
+  const auto sz = v.size();
+  for (auto i = 0u; i!=sz; ++i)
   {
-    sum +=i;
+    sum += v[i];
   }
-  std::cout << sum << '\n';
+  return sum;
 }
 
-void g()
+int sum_b(const std::vector<int>& v)
 {
-  int sum = 0;
-  for (int i=0; i!=100000000; ++i)
-  {
-    sum +=i;
-  }
-  std::cout << sum << '\n';
+  return std::accumulate(
+    std::begin(v),
+    std::end(v),
+    0
+  );
 }
 
 #include <cassert>
@@ -35,8 +36,14 @@ int main()
   #error Do not profile in debug mode
   #endif
   assert(!"Do not profile in debug mode");
-
-  f();
-  g();
+  const int sz{100'000'000};
+  std::vector<int> v(sz);
+  std::iota(std::begin(v), std::end(v), 0);
+  for (int i=0; i!=10; ++i)
+  {
+    const int a{sum_a(v)};
+    const int b{sum_b(v)};
+    if (a != b) return 1;
+  }
   cpp_14();
 }
