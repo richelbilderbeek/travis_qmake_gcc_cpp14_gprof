@@ -1,13 +1,12 @@
+#include <cassert>
 #include <iostream>
+#include <numeric>
+#include <vector>
 
 //Only compiles
 auto cpp_14() noexcept {
   return "Hello world\n";
 }
-
-#include <iostream>
-#include <numeric>
-#include <vector>
 
 int sum_a(const std::vector<int>& v)
 {
