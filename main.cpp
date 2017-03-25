@@ -34,7 +34,7 @@ int main()
   #error Do not profile in debug mode
   #endif
   assert(!"Do not profile in debug mode");
-  const int sz{100'000'000};
+  const int sz{500'000'000};
   std::vector<int> v(sz);
   std::iota(std::begin(v), std::end(v), 0);
   for (int i=0; i!=10; ++i)

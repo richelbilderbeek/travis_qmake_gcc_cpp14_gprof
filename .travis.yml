@@ -17,7 +17,7 @@ script:
   - qmake
   - make release
   # Run
-  - ./travis_qmake_gcc_cpp14_gprof
+  - time ./travis_qmake_gcc_cpp14_gprof
   # produce the gprof log
   - gprof travis_qmake_gcc_cpp14_gprof > gprof.log
   # Read the 100 top lines
