@@ -1,6 +1,6 @@
 language: cpp
 compiler: gcc
-sudo: require
+dist: trusty
 
 before_install:
   # C++14
@@ -10,6 +10,7 @@ before_install:
 install: 
   # C++14
   - sudo apt-get install -qq g++-5
+  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
 
 script: 
   # Build
@@ -20,4 +21,4 @@ script:
   # produce the gprof log
   - gprof travis_qmake_gcc_cpp14_gprof > gprof.log
   # Read the 100 top lines
-  - head gprof.log -n 1000
+  - head gprof.log -n 100
