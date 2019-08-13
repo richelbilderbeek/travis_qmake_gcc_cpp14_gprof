@@ -4,7 +4,11 @@ SOURCES += main.cpp
 QMAKE_CXXFLAGS += -Wall -Wextra -Weffc++ -Werror
 
 # C++14
+<<<<<<< HEAD
 CONFIG += c++14
+=======
+CONFIF += c++14
+>>>>>>> develop
 QMAKE_CXXFLAGS += -std=c++14
 
 # Debug and release mode

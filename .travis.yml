@@ -1,14 +1,28 @@
 language: cpp
 dist: bionic
 compiler: gcc
+<<<<<<< HEAD
+=======
+dist: trusty
+
+before_install:
+  # C++14
+  - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update -qq
+
+install: 
+  # C++14
+  - sudo apt-get install -qq g++-5
+  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90
+>>>>>>> develop
 
 script: 
   # Build
   - qmake
   - make release
   # Run
-  - ./travis_qmake_gcc_cpp14_gprof
+  - time ./travis_qmake_gcc_cpp14_gprof
   # produce the gprof log
   - gprof travis_qmake_gcc_cpp14_gprof > gprof.log
   # Read the 100 top lines
-  - head gprof.log -n 1000
+  - head gprof.log -n 100

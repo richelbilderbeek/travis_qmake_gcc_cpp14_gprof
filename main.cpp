@@ -1,42 +1,54 @@
+#include <algorithm>
+#include <cassert>
 #include <iostream>
+#include <numeric>
+#include <vector>
 
 //Only compiles
 auto cpp_14() noexcept {
   return "Hello world\n";
 }
 
-#include <iostream>
-
-
-void f()
+std::vector<int> sort_a(std::vector<int> v)
 {
-  int sum = 0;
-  for (int i=0; i!=10000000; ++i)
+ const auto sz = v.size();
+  for(auto i = 0u; i != sz - 1; ++i)
   {
-    sum +=i;
+    for(auto j = 0u; j != sz - i - 1; ++j)
+    {
+      if(v[j] > v[j+1])
+      {
+        std::swap(v[j],v[j+1]);
+      }
+    }
   }
-  std::cout << sum << '\n';
+  return v;
 }
 
-void g()
+std::vector<int> sort_b(std::vector<int> v)
 {
-  int sum = 0;
-  for (int i=0; i!=100000000; ++i)
-  {
-    sum +=i;
-  }
-  std::cout << sum << '\n';
+  std::sort(std::begin(v), std::end(v));
+  return v;
 }
 
-#include <cassert>
+auto create_series()
+{
+  const int sz{100'000};
+  std::vector<int> v(sz);
+  std::iota(std::begin(v), std::end(v), 0);
+  std::reverse(std::begin(v), std::end(v));
+  return v;
+}
+
 int main()
 {
   #ifndef NDEBUG
   #error Do not profile in debug mode
   #endif
   assert(!"Do not profile in debug mode");
-
-  f();
-  g();
+  const auto v = create_series();
+  const auto a = sort_a(v);
+  const auto b = sort_b(v);
+  if (a != b) return 1;
   cpp_14();
 }
